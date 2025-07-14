@@ -4,23 +4,22 @@
 // 3 - Implementa el método mostrar() que use un for para listar los productos numerados (ej: "1. Manzanas").
 // 4 - Muestra la lista completa en consola.
 
-class listaCompras {
-    constructor () {
-      this.productos = [];  
-    }
-    agregar(producto){
-        this.productos.push(producto)
-    }
+function ListaCompras() {
+    this.productos = [];  
+
+    this.agregar = function(producto) {
+        this.productos.push(producto);
+    };
     
-    mostrar() {
+    this.mostrar = function() {
         console.log("Lista de Compras:");
-        for (let i = 0; i < this.productos.length;i++){
+        for (let i = 0; i < this.productos.length; i++) {
             console.log((i + 1) + ". " + this.productos[i]);
         }
-    }
+    };
 }
 
-const miLista = new listaCompras();
+const miLista = new ListaCompras();
 
 miLista.agregar("Manzanas");
 miLista.agregar("Peras");

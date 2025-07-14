@@ -6,23 +6,21 @@
 // 4 - Prueba prestar el libro dos veces y observa los mensajes
 const prompt = require('prompt-sync')();
 
-class libro { // 
-constructor (titulo, autor) {
+function Libro(titulo, autor) {
     this.titulo = titulo;
     this.autor = autor;
-    this.pretado = false;
-} 
- 
-    prestar() {
-        if (!this.prestado){
+    this.prestado = false;  // Corregí el typo "pretado" → "prestado"
+    
+    this.prestar = function() {
+        if (!this.prestado) {
             this.prestado = true;
-            console.log("El Libro"+ " " + this.titulo + " " +". Ha sido prestado exitosamente.")
+            console.log("El libro " + this.titulo + " ha sido prestado exitosamente.");
         } else {
-            console.log("Lo sentimos" + " " + this.titulo + " " +".Ya ha sido prestado y no se encuentra disponible.")
+            console.log("Lo sentimos, " + this.titulo + " ya ha sido prestado y no se encuentra disponible.");
         }
-    }
+    };
 }
 
-const libro1 = new libro ("El Principito","Antoine de Saint-Exupéry")
-libro1.prestar()
-libro1.prestar()
+const libro1 = new Libro("El Principito", "Antoine de Saint-Exupéry");
+libro1.prestar();
+libro1.prestar();
